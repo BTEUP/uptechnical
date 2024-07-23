@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!-- saved from url=(0122)https://bteup.ac.in/Authuser/EXAMINATION/NominalRoll.aspx?hash=41B2FF9C72E76DE802A2C7F32DFEC11319547263&key=20079_IA_2009# -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Object reference not set to an instance of an object.</title>
+        <meta name="viewport" content="width=device-width">
+        <style>
+         body {font-family:"Verdana";font-weight:normal;font-size: .7em;color:black;} 
+         p {font-family:"Verdana";font-weight:normal;color:black;margin-top: -5px}
+         b {font-family:"Verdana";font-weight:bold;color:black;margin-top: -5px}
+         H1 { font-family:"Verdana";font-weight:normal;font-size:18pt;color:red }
+         H2 { font-family:"Verdana";font-weight:normal;font-size:14pt;color:maroon }
+         pre {font-family:"Consolas","Lucida Console",Monospace;font-size:11pt;margin:0;padding:0.5em;line-height:14pt}
+         .marker {font-weight: bold; color: black;text-decoration: none;}
+         .version {color: gray;}
+         .error {margin-bottom: 10px;}
+         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:pointer; }
+         @media screen and (max-width: 639px) {
+          pre { width: 440px; overflow: auto; white-space: pre-wrap; word-wrap: break-word; }
+         }
+         @media screen and (max-width: 479px) {
+          pre { width: 280px; }
+         }
+        </style>
+    </head>
+
+    <body bgcolor="white">
+
+            <span><h1>Server Error in '/' Application.<hr width="100%" size="1" color="silver"></h1>
+
+            <h2> <i>Object reference not set to an instance of an object.</i> </h2></span>
+
+            <font face="Arial, Helvetica, Geneva, SunSans-Regular, sans-serif ">
+
+            <b> Description: </b>An unhandled exception occurred during the execution of the current web request. Please review the stack trace for more information about the error and where it originated in the code.
+
+            <br><br>
+
+            <b> Exception Details: </b>System.NullReferenceException: Object reference not set to an instance of an object.<br><br>
+
+            <b>Source Error:</b> <br><br>
+
+            <table width="100%" bgcolor="#ffffcc">
+               <tbody><tr>
+                  <td>
+                      <code><pre>
+Line 74:         If (IsPostBack = False) Then
+Line 75:             Dim instcode As String
+<font color="red">Line 76:             If MySessionManager.CurrentSuperUser.CCCD = "999" Then
+</font>Line 77:                 instcode = 0
+Line 78:             Else</pre>                      </code>
+
+                  </td>
+               </tr>
+            </tbody></table>
+
+            <br>
+
+            <b> Source File: </b> D:\Inetpub\vhosts\bteup.ac.in\httpdocs\Authuser\EXAMINATION\NominalRoll.aspx.vb<b> &nbsp;&nbsp; Line: </b> 76
+            <br><br>
+
+            <b>Stack Trace:</b> <br><br>
+
+            <table width="100%" bgcolor="#ffffcc">
+               <tbody><tr>
+                  <td>
+                      <code><pre>
+[NullReferenceException: Object reference not set to an instance of an object.]
+   AUTHUSER_ENROLLMENT_ENROLLPAGE.Page_Load(Object sender, EventArgs e) in D:\Inetpub\vhosts\bteup.ac.in\httpdocs\Authuser\EXAMINATION\NominalRoll.aspx.vb:76
+   System.Web.UI.Control.OnLoad(EventArgs e) +107
+   System.Web.UI.Control.LoadRecursive() +89
+   System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint) +1532
+</pre>                      </code>
+
+                  </td>
+               </tr>
+            </tbody></table>
+
+            <br>
+
+            <hr width="100%" size="1" color="silver">
+
+            <b>Version Information:</b>&nbsp;Microsoft .NET Framework Version:4.0.30319; ASP.NET Version:4.8.4718.0
+
+            </font>
+
+    
+
+</body></html>

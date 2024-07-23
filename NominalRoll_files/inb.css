@@ -1,0 +1,327 @@
+A.disability {
+	FONT-FAMILY: Tahoma; COLOR: #9d0000; FONT-SIZE: 11px; FONT-WEIGHT: bold; TEXT-DECORATION: underline
+}
+
+.bodymsg
+{
+    margin: 0;
+    padding: 0;
+    line-height: 1.7em;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 12px;
+    color: #000000;
+    background: aliceblue;
+}
+  
+ .tdnowrap
+{
+   
+     background-color: #FFFFFF;font-family: tahoma;color: #000000; font-size: 12px; 
+  
+}
+   
+  .tdmasterhead
+{
+   
+     background-color: #FFFFFF;font-family: tahoma; font-size: 12px; 
+  
+}
+  
+   
+   
+       
+       .updateProgressMessage {
+	MARGIN: 3px; FONT-FAMILY: Trebuchet MS; FONT-SIZE: small; VERTICAL-ALIGN: middle
+}
+.updateProgress {
+	BORDER-BOTTOM: 1px solid; POSITION: absolute; BORDER-LEFT: 1px solid; BACKGROUND-COLOR: #ffffff; WIDTH: 200px; HEIGHT: 100px; BORDER-TOP: 1px solid; BORDER-RIGHT: 1px solid
+}
+.tablewhitebackground
+{
+     background-color: White;
+}
+body
+{
+    background-color: whitesmoke;
+}
+.overlay {
+	BORDER-BOTTOM: #808080 1px solid; BORDER-LEFT: #808080 1px solid; BORDER-TOP: #808080 1px solid; BORDER-RIGHT: #808080 1px solid
+}
+.ValidatorError {
+	FONT-FAMILY: Tahoma; COLOR: #ff0066; FONT-SIZE: 12px; FONT-WEIGHT: normal
+}
+.hlink {
+	FONT-FAMILY: Tahoma; COLOR: steelblue; FONT-SIZE: 11px; FONT-WEIGHT: bold
+}
+.MsgLabelbold {
+	FONT-FAMILY: Tahoma; COLOR: #CC0000; FONT-SIZE: 15px; FONT-WEIGHT: 700
+}
+A.disability:hover {
+	FONT-FAMILY: Tahoma; COLOR: #9d0000; FONT-SIZE: 11px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.linktxt2 {
+	FONT-FAMILY: Tahoma; COLOR: #333333; FONT-SIZE: 11px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.linktxt2:hover {
+	FONT-FAMILY: Tahoma; COLOR: #000000; FONT-SIZE: 11px; FONT-WEIGHT: bold; TEXT-DECORATION: underline
+}
+A.link4 {
+	FONT-FAMILY: Tahoma; COLOR: #005066; FONT-SIZE: 12px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+.ddlform {
+	height :40px;BACKGROUND-COLOR: #fbfbfb; FONT-FAMILY: Tahoma, verdana, arial; COLOR: black; FONT-SIZE: 9pt; VERTICAL-ALIGN: middle; TEXT-DECORATION: none
+}
+#newPreview        
+{
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale);
+        
+}
+.frame {
+	POSITION: absolute; PADDING-BOTTOM: 2px; PADDING-LEFT: 3px; WIDTH: 350px; PADDING-RIGHT: 3px; FONT-FAMILY: arial, helvetica, clean, sans-serif; FONT-SIZE: small; PADDING-TOP: 2px
+}
+.overlay {
+	BORDER-BOTTOM: #808080 1px solid; BORDER-LEFT: #808080 1px solid; BORDER-TOP: #808080 1px solid; BORDER-RIGHT: #808080 1px solid
+}
+.noImage
+{
+    background-position: center;
+    border: 1px solid #000000;
+    width: 90px;
+    height: 98px;
+    background-image: url('../Images/Noimage.png');
+    background-repeat: no-repeat;
+}
+.textboxes3form
+{
+   
+    font-family: Tahoma, arial;
+    height: 30px;
+    color: #000000;
+    font-size: 9pt;
+    text-decoration: none;
+    
+    border-color: #000000;
+    width: 150px;
+}
+.textboxes3formcaptcha
+{
+   
+    font-family: Tahoma, arial;
+    height: 17px;
+    color: #000000;
+    font-size: 9pt;
+    text-decoration: none;
+    border-color: #000000;
+    width: 150px;
+}
+.lableform
+{
+   
+    font-family: Tahoma, arial;
+    color: #000000;
+    font-size: 9pt;
+    text-decoration: none;
+    border-color: #000000;
+}
+.textboxes3multilineform
+{
+   
+    font-family: Tahoma, arial;
+    height: 50px;
+    color: #000000;
+    font-size: 9pt;
+    text-decoration: none;
+ 
+    border-color: #000000;
+    width: 150px;
+}
+.btnSubmitform {
+	border: 2px outset steelblue;
+	FILTER: progid:DXImageTransform.Microsoft.Gradient   
+   (GradientType=0,StartColorStr='#ffffffff',EndColorStr='#ffeeddaa'); 	BACKGROUND-COLOR: transparent; 	FONT-FAMILY: Tahoma; 	COLOR: #2673a0; 	FONT-SIZE: 11px; 	FONT-WEIGHT: bold; 	height: 35px;
+}
+
+A.link4:hover {
+	FONT-FAMILY: Tahoma; COLOR: #000000; FONT-SIZE: 12px; FONT-WEIGHT: bold; TEXT-DECORATION: underline
+}
+.textbox {
+	BORDER-BOTTOM: #3c619d 1px solid; BORDER-LEFT: #3c619d 1px solid; BACKGROUND-COLOR: #ffffff; PADDING-LEFT: 5px; WIDTH: 20px; PADDING-RIGHT: 5px; FONT-FAMILY: Tahoma; HEIGHT: 18px; COLOR: #000000; FONT-SIZE: 11px; BORDER-TOP: #3c619d 1px solid; BORDER-RIGHT: #3c619d 1px solid
+}
+.textbox2 {
+	BORDER-BOTTOM: #3c619d 1px solid; BORDER-LEFT: #3c619d 1px solid; BACKGROUND-COLOR: #ffffff; PADDING-LEFT: 5px; WIDTH: 110px; PADDING-RIGHT: 5px; FONT-FAMILY: Tahoma; HEIGHT: 18px; COLOR: #000000; FONT-SIZE: 11px; BORDER-TOP: #3c619d 1px solid; BORDER-RIGHT: #3c619d 1px solid
+}
+.textsearch {
+	BORDER-BOTTOM: #3c619d 1px solid; BORDER-LEFT: #3c619d 1px solid; BACKGROUND-COLOR: #ffffff; PADDING-LEFT: 5px; WIDTH: 20px; PADDING-RIGHT: 5px; FONT-FAMILY: Tahoma; HEIGHT: 18px; COLOR: #000000; FONT-SIZE: 11px; BORDER-TOP: #3c619d 1px solid; BORDER-RIGHT: #3c619d 1px solid
+}
+.textboxdisable {
+	BORDER-BOTTOM: #3c619d 1px solid; BORDER-LEFT: #3c619d 1px solid; BACKGROUND-COLOR: #cccccc; PADDING-LEFT: 5px; WIDTH: 100px; PADDING-RIGHT: 5px; FONT-FAMILY: Tahoma; HEIGHT: 18px; COLOR: #000000; FONT-SIZE: 11px; BORDER-TOP: #3c619d 1px solid; BORDER-RIGHT: #3c619d 1px solid
+}
+ .hindi
+        {
+        	font-family:mangal;
+        	
+        }
+.tableheader
+{
+    padding-bottom: 1px;
+    background-color: #990033;
+    padding-left: 3px;
+    padding-right: 1px;
+    font-family: Arial;
+    height: 40px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    padding-top: 3px;
+}
+
+
+.tableheaderSMALL
+{
+    padding-bottom: 1px;
+    background-color: #990033;
+    padding-left: 3px;
+    padding-right: 1px;
+    font-family: Arial;
+    height: 20px;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    padding-top: 3px;
+}
+
+
+
+
+
+
+.tableheaderhint
+{
+    padding-bottom: 1px;
+    background-color: #990033;
+    padding-left: 3px;
+    padding-right: 1px;
+    font-family: Arial;
+    height: 20px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    padding-top: 3px;
+    text-align: left;
+}
+.textarea {
+	BORDER-BOTTOM: #005ba6 1px solid; BORDER-LEFT: #005ba6 1px solid; PADDING-BOTTOM: 5px; LINE-HEIGHT: 18px; BACKGROUND-COLOR: #ffffff; PADDING-LEFT: 5px; BOTTOM: 5px; PADDING-RIGHT: 5px; FONT-FAMILY: Tahoma; COLOR: #000000; FONT-SIZE: 11px; BORDER-TOP: #005ba6 1px solid; TOP: 5px; RIGHT: 5px; BORDER-RIGHT: #005ba6 1px solid; PADDING-TOP: 5px; LEFT: 5px
+}
+.modalBackground {
+	FILTER: alpha(opacity=50); BACKGROUND-COLOR: gray; opacity: 0.60
+}
+.tablecontent1
+{
+    padding-bottom: 5px;
+    background-color: #FFFFFF;
+    padding-left: 5px;
+    bottom: 5px;
+    padding-right: 5px;
+    font-family: tahoma;
+    height: 18px;
+    color: #000000;
+    font-size: 12px;
+    top: 5px;
+    right: 5px;
+    font-weight: normal;
+    padding-top: 5px;
+    left: 5px;
+}
+.headermsg {
+	BORDER-BOTTOM: #ccc 1px solid; PADDING-BOTTOM: 3px; PADDING-LEFT: 12px; PADDING-RIGHT: 12px; BACKGROUND: url(../Images/sprite.png) repeat-x 0px -200px; COLOR: #0066cc; CURSOR: move; FONT-WEIGHT: bold; PADDING-TOP: 3px
+}
+.close {
+	POSITION: absolute; WIDTH: 25px; BACKGROUND: url(../Images/sprite.png) no-repeat 0px -300px; HEIGHT: 15px; TOP: 7px; CURSOR: pointer; RIGHT: 7px
+}
+.framemsg {
+	POSITION: absolute; PADDING-BOTTOM: 2px; PADDING-LEFT: 3px; WIDTH: 350px; PADDING-RIGHT: 3px; FONT-FAMILY: arial, helvetica, clean, sans-serif; FONT-SIZE: small; PADDING-TOP: 2px
+}
+.btnSubmit {
+	border: 2px outset steelblue;
+	FILTER: progid:DXImageTransform.Microsoft.Gradient   
+   (GradientType=0,StartColorStr='#ffffffff',EndColorStr='#ffeeddaa'); 	BACKGROUND-COLOR: transparent; 	FONT-FAMILY: Tahoma; 	COLOR: #2673a0; 	FONT-SIZE: 11px; 	FONT-WEIGHT: bold; 	height: 35px;
+}
+
+.tablecontent1new
+{
+    background-color: #FFFFFF;
+    font-family: tahoma;
+    color: #000000;
+    font-size: 12px;
+    
+}
+
+.tablecontent1newbold
+{
+    background-color: #FFFFFF;
+    font-family: tahoma;
+    color: #000000;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.tablecontent2 {
+	PADDING-BOTTOM: 5px; BACKGROUND-COLOR: #fcfdfe; PADDING-LEFT: 5px; BOTTOM: 5px; PADDING-RIGHT: 5px; FONT-FAMILY: Tahoma; HEIGHT: 18px; COLOR: #000000; FONT-SIZE: 12px; TOP: 5px; RIGHT: 5px; FONT-WEIGHT: normal; PADDING-TOP: 5px; LEFT: 5px
+}
+.header {
+	PADDING-BOTTOM: 1px; FONT-FAMILY: Tahoma; HEIGHT: 22px; COLOR: #990033; FONT-SIZE: 12px; FONT-WEIGHT: bold; PADDING-TOP: 1px
+}
+.footertext {
+	FONT-FAMILY: Tahoma; COLOR: #ffffff; FONT-SIZE: 10px
+}
+.alert {
+	FONT-FAMILY: Tahoma; COLOR: #ff0030; FONT-SIZE: 10px
+}
+A.linkfooter {
+	FONT-FAMILY: Tahoma; COLOR: #00a2cf; FONT-SIZE: 11px; FONT-WEIGHT: normal; TEXT-DECORATION: none
+}
+A.linkfooter:hover {
+	FONT-FAMILY: Tahoma; COLOR: #00a2cf; FONT-SIZE: 11px; FONT-WEIGHT: normal; TEXT-DECORATION: underline
+}
+.text1 {
+	LINE-HEIGHT: 18px; FONT-FAMILY: Tahoma; COLOR: #000000; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+.button {
+	BORDER-BOTTOM: #00669d 1px solid; BORDER-LEFT: #36a4c9 1px solid; PADDING-BOTTOM: 1px; BACKGROUND-COLOR: #008dbd; PADDING-LEFT: 1px; PADDING-RIGHT: 1px; FONT-FAMILY: Tahoma; HEIGHT: 20px; COLOR: #ffffff; FONT-SIZE: 11px; BORDER-TOP: #6cbcd7 1px solid; FONT-WEIGHT: bold; BORDER-RIGHT: #0074a8 1px solid; PADDING-TOP: 1px
+}
+.tdbg {
+	BORDER-BOTTOM: #0199cd 1px solid; BORDER-LEFT: #0199cd 1px solid; BORDER-TOP: #0199cd 1px solid; BORDER-RIGHT: #0199cd 1px solid
+}
+.content {
+	LINE-HEIGHT: 16px; FONT-FAMILY: Tahoma; COLOR: #000000; FONT-SIZE: 10px; TEXT-DECORATION: none
+}
+.personaldetails {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Tahoma; COLOR: #000000; FONT-SIZE: 12px; FONT-WEIGHT: bold; TEXT-DECORATION: none; PADDING-TOP: 0px
+}
+A.Whitelink {
+	FONT-FAMILY: Arial; COLOR: #ffffff; FONT-SIZE: 12px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.Whitelink:hover {
+	FONT-FAMILY: Arial; COLOR: #ffffff; FONT-SIZE: 12px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+.redtext {
+	FONT-FAMILY: Tahoma; COLOR: #ff0000; FONT-SIZE: 12px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+.listMenu {
+	BORDER-BOTTOM: #999999 1px solid; BORDER-LEFT: #999999 1px solid; FONT-FAMILY: tahoma; COLOR: #606a74; FONT-SIZE: 11px; BORDER-TOP: #999999 1px solid; BORDER-RIGHT: #999999 1px solid
+}
+.listMenudisable {
+	BORDER-BOTTOM: #999999 1px solid; BORDER-LEFT: #999999 1px solid; FONT-FAMILY: tahoma; COLOR: #cccccc; FONT-SIZE: 11px; BORDER-TOP: #999999 1px solid; BORDER-RIGHT: #999999 1px solid
+}
+.tablecontent1a {
+	PADDING-BOTTOM: 5px; BACKGROUND-COLOR: #eef7fd; PADDING-LEFT: 5px; BOTTOM: 5px; PADDING-RIGHT: 5px; FONT-FAMILY: tahoma; HEIGHT: 10px; COLOR: #000000; FONT-SIZE: 12px; TOP: 5px; RIGHT: 5px; FONT-WEIGHT: normal; PADDING-TOP: 5px; LEFT: 5px
+}
+.tablecontent2a {
+	PADDING-BOTTOM: 5px; BACKGROUND-COLOR: #fcfdfe; PADDING-LEFT: 5px; BOTTOM: 5px; PADDING-RIGHT: 5px; FONT-FAMILY: Tahoma; HEIGHT: 10px; COLOR: #000000; FONT-SIZE: 12px; TOP: 5px; RIGHT: 5px; FONT-WEIGHT: normal; PADDING-TOP: 5px; LEFT: 5px
+}
+
+
+.tablecontent1newboldForReportForReport {
+    font-size: 10px;
+    font-weight: bold;
+}

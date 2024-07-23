@@ -1,0 +1,99 @@
+﻿body {
+	overflow: hidden;
+}
+/* Preloader */
+#preloader {
+	position: fixed;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	background-color:#fff; /* change if the mask should have another color then white */
+	z-index:99; /* makes sure it stays on top */
+}
+
+#status {
+	width:200px;
+	height:200px;
+	position:absolute;
+	left:50%; /* centers the loading animation horizontally one the screen */
+	top:50%; /* centers the loading animation vertically one the screen */
+	background-image:url(../images/loader.gif); /* path to your loading animation */
+	background-repeat:no-repeat;
+	background-position:center;
+	margin:-100px 0 0 -100px; /* is width and height divided by two */
+}
+   
+ /* Layout 11 */ #pg-11-0, #pg-11-1, #pg-11-2, #pg-11-3, #pl-11 .panel-grid-cell .so-panel {
+            margin-bottom: 30px;
+        }
+
+        #pgc-11-1-0 {
+            width: 22.554%;
+        }
+
+        #pgc-11-1-1 {
+            width: 21.241%;
+        }
+
+        #pgc-11-1-2 {
+            width: 56.205%;
+        }
+
+        #pg-11-1 .panel-grid-cell, #pg-11-2 .panel-grid-cell, #pg-11-3 .panel-grid-cell {
+            float: left;
+        }
+
+        #pgc-11-2-0, #pgc-11-3-0 {
+            width: 30.026%;
+        }
+
+        #pgc-11-2-1, #pgc-11-3-1 {
+            width: 69.974%;
+        }
+
+        #pl-11 .panel-grid-cell .so-panel:last-child {
+            margin-bottom: 0px;
+        }
+
+        #pg-11-1, #pg-11-2, #pg-11-3 {
+            margin-left: -15px;
+            margin-right: -15px;
+        }
+
+            #pg-11-1 .panel-grid-cell, #pg-11-2 .panel-grid-cell, #pg-11-3 .panel-grid-cell {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+        @media (max-width:780px)
+         {
+            #pg-11-0 .panel-grid-cell, #pg-11-1 .panel-grid-cell, #pg-11-2 .panel-grid-cell, #pg-11-3 .panel-grid-cell, #pg-11-4 .panel-grid-cell {
+                float: none;
+                width: auto;
+            }
+
+            #pgc-11-1-0, #pgc-11-1-1, #pgc-11-2-0, #pgc-11-3-0 {
+                margin-bottom: 30px;
+            }
+
+            #pl-11 .panel-grid {
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            #pl-11 .panel-grid-cell {
+                padding: 0;
+            }
+        }
+
+#background_cycler{padding:0;margin:0;width:100%;position:fixed;top:0;left:0;z-index:-1}
+#background_cycler img{position:absolute;left:0;top:0;width:100%;z-index:1}
+#background_cycler img.active{z-index:3}
+
+#leftLogo {
+    width:120px;
+}
+#rightLogo {
+    width:220px;
+}

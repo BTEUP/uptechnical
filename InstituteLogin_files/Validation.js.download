@@ -1,0 +1,331 @@
+﻿
+//START*****************************************************Validation Function***************************************************
+//IsRequired(control,  messageContol, errorMsg)               : To validate required fields
+//Permerters: control - Control to validate; messageContol - Control to show message (if null them alert message appear); errorMsg- error message string
+//IsAlphabetsOnly(control,  messageContol, errorMsg)          : To validate only alphabets (A-Z, a-z)
+//IsNumericOnly(control,  messageContol, errorMsg)            : To validate only numerics (0-9)
+//IsEmailOnly(control,  messageContol, errorMsg)              : To validate email fields
+
+
+//To validate required fields
+function IsRequired(control,  messageContol, errorMsg)
+{    
+    try
+      {
+      if (trim(control.value) == "")
+            {
+               if (messageContol == null) 
+                   alert(errorMsg);
+               else
+                    messageContol.value = errorMsg;
+               control.focus();
+            }
+       else
+            return true;
+      }
+    catch(err)
+      {
+      txt="There was an error on this page.\n";
+      txt+="Error description: " + err.description + "\n\n";
+      txt+="Click OK to continue.\n\n";
+      alert(txt);
+      }
+      return false;
+}
+function IsRequiredDDL(control,  messageContol, errorMsg)
+{    
+    try
+      {
+      if (trim(control.value) == "0")
+            {
+               if (messageContol == null) 
+                   alert(errorMsg);
+               else
+                    messageContol.value = errorMsg;
+               control.focus();
+            }
+       else
+            return true;
+      }
+    catch(err)
+      {
+      txt="There was an error on this page.\n";
+      txt+="Error description: " + err.description + "\n\n";
+      txt+="Click OK to continue.\n\n";
+      alert(txt);
+      }
+      return false;
+}
+
+//To validate only alphabets (A-Z, a-z)
+function IsAlphabetsOnly(control,  messageContol, errorMsg)
+{    
+    try
+      {
+       if (! containsAlphabets(control.value))
+            {
+               if (messageContol == null) 
+                   alert(errorMsg);
+               else
+                    messageContol.value = errorMsg;
+               control.value = ""
+               control.focus();
+            }
+       else
+            return true;
+      }
+    catch(err)
+      {
+      txt="There was an error on this page.\n";
+      txt+="Error description: " + err.description + "\n\n";
+      txt+="Click OK to continue.\n\n";
+      alert(txt);
+      }
+      return false;
+}
+
+
+//To validate only numerics (0-9)
+function IsNumericOnly(control,  messageContol, errorMsg)
+{    
+    try
+      {
+       if (! IsNumeric(control.value))
+            {
+               if (messageContol == null) 
+                   alert(errorMsg);
+               else
+                    messageContol.value = errorMsg;
+               control.value = ""
+               control.focus();
+            }
+       else
+            return true;
+      }
+    catch(err)
+      {
+      txt="There was an error on this page.\n";
+      txt+="Error description: " + err.description + "\n\n";
+      txt+="Click OK to continue.\n\n";
+      alert(txt);
+      }
+      return false;
+}
+
+//To validate email fields
+function IsEmailOnly(control,  messageContol, errorMsg)
+{    
+    try
+      {
+       if (! isEmail(control.value))
+            {
+               if (messageContol == null) 
+                   alert(errorMsg);
+               else
+                    messageContol.value = errorMsg;
+               control.value = ""
+               control.focus();
+            }
+       else
+            return true;
+      }
+    catch(err)
+      {
+      txt="There was an error on this page.\n";
+      txt+="Error description: " + err.description + "\n\n";
+      txt+="Click OK to continue.\n\n";
+      alert(txt);
+      }
+      return false;
+}
+
+//To validate date fields
+function IsValidDate(control,  messageContol, errorMsg)
+{    
+    try
+      {
+       if (! checkDate(control.value))
+            {
+               if (messageContol == null) 
+                   alert(errorMsg);
+               else
+                    messageContol.value = errorMsg;
+               control.value = ""
+               control.focus();
+            }
+       else
+            return true;
+      }
+    catch(err)
+      {
+      txt="There was an error on this page.\n";
+      txt+="Error description: " + err.description + "\n\n";
+      txt+="Click OK to continue.\n\n";
+      alert(txt);
+      }
+      return false;
+}
+//START************************************** Validation Funcation ****************************************
+
+
+
+
+//START************************************** Help Function ***********************************************
+//These function contains the logic to validate
+
+
+function checkDate(dateValue) 
+{
+    if (dateValue=="")
+        {
+	        return false;
+        }
+    // Checks for the following valid date formats:
+    // MM/DD/YY   MM/DD/YYYY   MM-DD-YY   MM-DD-YYYY
+    // Also separates date into month, day, and year variables
+    //var datePat = /^(\d{1,2})(\/|-)(\d{1,2})\2(\d{2}|\d{4})$/;
+    // To require a 4 digit year entry, use this line instead:
+    var datePat = /^(\d{1,2})(\/|-)(\d{1,2})\2(\d{4})$/;
+    var matchArray = dateValue.match(datePat); // is the format ok?
+    if (matchArray == null)
+        {
+        return false;
+        }
+    day = matchArray[1]; // parse date into variables
+    month = matchArray[3];
+    year = matchArray[4];
+    if (month < 1 || month > 12) { // check month range
+        return false;
+        }
+    if (day < 1 || day > 31) {
+        return false;
+        }
+    if ((month==4 || month==6 || month==9 || month==11) && day==31) {
+        return false
+        }
+    if (month == 2) { // check for february 29th
+    var isleap = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
+    if (day>29 || (day==29 && !isleap)) {
+        return false;
+       }
+    }
+return true;  
+}
+
+function containsAlphabets(checkString) {
+        var tempString="";
+        //var regExp = /^[A-Za-z+\.+\x20]$/;
+        var regExp = /^[A-Za-z+\.+\s]$/;
+        if(checkString != null && checkString != "")
+        {
+          for(var i = 0; i < checkString.length; i++)
+          { 
+            if (!checkString.charAt(i).match(regExp))
+            {
+              return false;
+            }
+          }
+        }
+        else
+        {
+          return false;
+        }
+        return true;
+}
+ 
+function IsNumeric(strString)
+   //  check for valid numeric strings	
+   {
+   var strValidChars = "0123456789";
+   var strChar;
+   var blnResult = true;
+
+   if (strString.length == 0) return false;
+
+   //  test strString consists of valid characters listed above
+   for (i = 0; i < strString.length && blnResult == true; i++)
+      {
+      strChar = strString.charAt(i);
+      if (strValidChars.indexOf(strChar) == -1)
+         {
+         blnResult = false;
+         }
+      }
+   return blnResult;
+   }
+
+function isEmail(string) {
+if (string.search(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/) != -1)
+return true;
+else
+return false;
+}
+
+// Removes leading whitespaces
+function LTrim( value ) {
+	
+	var re = /\s*((\S+\s*)*)/;
+	return value.replace(re, "$1");
+	
+}
+
+// Removes ending whitespaces
+function RTrim( value ) {
+	
+	var re = /((\s*\S+)*)\s*/;
+	return value.replace(re, "$1");
+	
+}
+
+// Removes leading and ending whitespaces
+function trim( value ) {
+	
+	return LTrim(RTrim(value));
+	
+}
+//END**************************************Help Function ***********************************************
+
+
+function isvaliddate(sender, args) {
+    var a = args.Value;
+    if (a.length < 10 || a.length > 10) {
+        args.IsValid = false;
+        return;
+    }
+    var datePat = /^(\d{2})(\/)(\d{2})\2(\d{4})$/;
+    var matchArray = a.match(datePat); // is the format ok?
+    if (matchArray == null) {
+        args.IsValid = false;
+        return;
+    }
+    day = matchArray[1]; // parse date into variables
+    month = matchArray[3];
+    year = matchArray[4];
+    if (month < 1 || month > 12) { // check month range
+        args.IsValid = false;
+        return;
+    }
+    if (day < 1 || day > 31) {
+        args.IsValid = false;
+        return;
+    }
+    if ((month == 4 || month == 6 || month == 9 || month == 11) && day == 31) {
+        args.IsValid = false;
+        return;
+    }
+    if (month == 2) { // check for february 29th
+        var isleap = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
+        if (day > 29 || (day == 29 && !isleap)) {
+            args.IsValid = false;
+            return;
+        }
+    }
+    args.IsValid = true;  // date is valid
+}
+
+
+
+
+
+
+

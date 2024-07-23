@@ -1,0 +1,523 @@
+﻿$(window).on('load', function () { // makes sure the whole site is loaded 
+    $('#status').fadeOut(); // will first fade out the loading animation 
+    $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website. 
+    $('body').delay(350).css({ 'overflow': 'visible' });
+})
+//$(function () {
+//    var fadeShow = $(".background").fadeShow({
+//        correctRatio: true,
+//        shuffle: true,
+//        speed: 10000,
+//        images: ['/TestIndexWeb/images/2.jfif',
+//                 '/TestIndexWeb/images/3.jfif',
+//                 '/TestIndexWeb/images/3.jpg',
+//                '/TestIndexWeb/images/4.jpg']
+//    });
+//});
+var instcode = 999;
+function GetParameterValues(param) {
+    param = "instcode";
+    var url = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for (var i = 0; i < url.length; i++) {
+        var urlparam = url[i].split('=');
+        if (urlparam[0] == param) {
+            instcode = urlparam[1];
+            return urlparam[1];
+        }
+    }
+    
+}
+function myFunction() {
+    var x = document.getElementsByTagName("P");
+    var i;
+    for (i = 0; i < x.length; i++) {
+        x[i].style.fontSize = "16px";
+    }
+    var x1 = document.getElementsByTagName("a");
+    var i1;
+    for (i1 = 0; i1 < x.length; i1++) {
+        x1[i1].style.fontSize = "16px";
+    }
+}
+function my1Function() {
+    var x = document.getElementsByTagName("P");
+    var i;
+    for (i = 0; i < x.length; i++) {
+        x[i].style.fontSize = "14px";
+    }
+    var x1 = document.getElementsByTagName("a");
+    var i1;
+    for (i1 = 0; i1 < x.length; i1++) {
+        x1[i1].style.fontSize = "14px";
+    }
+}
+function my2Function() {
+    var x = document.getElementsByTagName("P");
+    var i;
+    for (i = 0; i < x.length; i++) {
+        x[i].style.fontSize = "+11px";
+    }
+    var x1 = document.getElementsByTagName("a");
+    var i1;
+    for (i1 = 0; i1 < x.length; i1++) {
+        x1[i1].style.fontSize = "+11px";
+    }
+}
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function checkCookie() {
+    var user = getCookie("language");
+    if (user != "") {
+       // alert("Welcome again " + user);
+    } else {
+        
+    }
+}
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+function documentSuccess() {
+    $.ajax({
+        dataType: "json",
+        url: "/InstituteContent/" + instcode + "/Content/HeaderContent.json",
+        //data: data,
+        success: function (result) {
+            $("#leftLogo").attr("src", result.HeaderDetails.leftLogoUrl);
+
+
+            var language = getCookie("language").toLowerCase();
+
+            if (language != "") {
+                if (language == "english") {
+
+                    $("#headerContent").html(result.HeaderDetails.headerContent);
+                    $("#aboutBoardCollege").html(result.HeaderDetails.aboutCollege);
+
+                }
+                else {
+                    $("#headerContent").html(result.HeaderDetails.HindiheaderContent);
+                    $("#aboutBoardCollege").html(result.HeaderDetails.HindiaboutCollege);
+
+                }
+            }
+            else {
+
+                setCookie("language", "english", 1);
+                $("#headerContent").html(result.HeaderDetails.headerContent);
+                $("#aboutBoardCollege").html(result.HeaderDetails.aboutCollege);
+
+            }
+
+
+            $("#rightLogo").attr("src", result.HeaderDetails.rightLogo);
+            //  console.log(result.HeaderDetails.aboutCollege);
+        },
+        complete: function () {
+            LoadPrimaryMenu();
+            LoadImportantLinks();
+            LoadImportantNews();
+            LoadPhotoGallery();
+        },
+    });
+
+}
+$(document).ready(function () {
+    documentSuccess();
+});
+    function LoadPrimaryMenu() {
+        $.ajax({
+            dataType: "json",
+            url: "/InstituteContent/" + instcode + "/Content/MenuContent.json",
+            //data: data,
+            success: function (result) {
+
+                LoadOldMenu(result);
+                LoadCarsol();
+            },
+            complete:function (){
+                
+            },
+        });
+           
+    }
+    function LoadCarsol() {
+        $.ajax({
+            dataType: "json",
+            url: "/InstituteContent/" + instcode + "/Content/SLIDERContent.json",
+            //data: data,
+            success: function (result) {
+
+                LOADCASROLInner(result);
+            },
+            complete: function () {
+
+            },
+        });
+
+    }
+    function LOADCASROLInner(jsondata) {
+        //alert(jsondata);
+        var cList = $('div#maincarousel');
+        var jdata = jsondata;
+        //  var jdata = JSON.parse(jsondata);
+        for (var i = 0; i <= jdata.length - 1; i++) {
+
+            if (i == 0) {
+                var div = $('<div/>').attr('class', 'item active').appendTo(cList);
+                var img = $('<img/>').attr("src", jdata[i].NodeLink)
+                       .text(jdata[i].NodeName).appendTo(div);
+
+            }
+            else {
+                var div = $('<div/>').attr('class', 'item').appendTo(cList);
+                var img = $('<img/>').attr("src", jdata[i].NodeLink)
+                       .text(jdata[i].NodeName).appendTo(div);
+
+            }
+        }
+    }
+
+
+    function LoadPhotoGallery() {
+        $.ajax({
+            dataType: "json",
+            url: "/InstituteContent/" + instcode + "/Content/PhotoGalleryContent.json",
+            //data: data,
+            success: function (result) {
+
+                LoadPhotoGalleryInner(result);
+            },
+            complete: function () {
+
+            },
+        });
+
+    }
+    function LoadPhotoGalleryInner(jsondata) {
+        //alert(jsondata);
+        var cList = $('div#myCarouselPhotoGalleryInner');
+        var jdata = jsondata;
+        //  var jdata = JSON.parse(jsondata);
+        for (var i = 0; i <= jdata.length - 1; i++) {
+
+            if (i == 0) {
+                var div = $('<div/>').attr('class', 'item active').appendTo(cList);
+                var img = $('<img/>').attr("src", jdata[i].NodeLink)
+                       .text(jdata[i].NodeName).appendTo(div);
+
+            }
+            else {
+                var div = $('<div/>').attr('class', 'item').appendTo(cList);
+                var img = $('<img/>').attr("src", jdata[i].NodeLink)
+                       .text(jdata[i].NodeName).appendTo(div);
+
+            }
+        }
+    }
+
+
+
+
+    function LoadOldMenu(jsondata) {
+        //alert(jsondata);
+        var cList = $('ul#primary-menu');
+        cList.empty();
+
+
+        var language = getCookie("language").toLowerCase();
+
+      
+
+       
+        var jdata = jsondata;
+        //  var jdata = JSON.parse(jsondata);
+        for (var i = 0; i <= jdata.length - 1; i++) {
+
+            if (i == 0) {
+                var limenu = $('<li/>').attr('title', jdata[i].NodeName).appendTo(cList);
+                var a = $('<a/>').attr("href", jdata[i].NodeLink)
+                    .attr("title", jdata[i].NodeName)
+                    .attr("class", 'menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home')
+                     .text(jdata[i].NodeName).appendTo(limenu);
+
+                if (language != "") {
+                    if (language == "english") {
+
+                        a.text(jdata[i].NodeName);
+                       
+
+                    }
+                    else {
+                        a.text(jdata[i].HindiNodeName);
+
+                    }
+                }
+                else {
+
+                    setCookie("language", "english", 1);
+                    a.text(jdata[i].NodeName);
+
+                }
+
+
+
+
+
+            } else {
+
+                var li = $('<li/>').attr('title', jdata[i].NodeName).appendTo(cList);
+                var a = $('<a/>').attr("href", jdata[i].NodeLink).attr("title", jdata[i].NodeName);
+                if (language != "") {
+                    if (language == "english") {
+
+                        a.text(jdata[i].NodeName);
+
+
+                    }
+                    else {
+                        a.text(jdata[i].HindiNodeName);
+
+                    }
+                }
+                else {
+
+                    setCookie("language", "english", 1);
+                    a.text(jdata[i].NodeName);
+
+                }
+                a.appendTo(li);
+          //      console.log(i + ": " + jdata[i]);
+                if (jdata[i].IsChildExists) {
+                    var ulchild = $('<ul/>').attr('title', jdata[i].NodeName).appendTo(li);
+                    ulchild.attr("class", "sub-menu");
+                    li.attr("ID", jdata[i].NodeId);
+
+                    li.attr("class", "menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children");
+                    for (var i1 = 0; i1 < jdata[i].childNode.length ; i1++)
+                    {
+            //            console.log(i1 + ": " + jdata[i].childNode[i1].NodeName);
+                        var lichild = $('<li/>').attr('title', jdata[i].childNode[i1].NodeName).appendTo(ulchild);
+                        var achild = $('<a/>').attr("href", jdata[i].childNode[i1].NodeLink).attr("title", jdata[i].childNode[i1].NodeName);
+                        lichild.attr("class", "menu-item menu-item-type-custom menu-item-object-custom");
+
+                        lichild.attr("ID", jdata[i].childNode[i1].NodeId);
+
+                        if (language != "") {
+                            if (language == "english") {
+
+                                achild.text(jdata[i].childNode[i1].NodeName);
+
+
+                            }
+                            else {
+                              achild.text(jdata[i].childNode[i1].HindiNodeName);
+
+                            }
+                        }
+                        else {
+
+                            setCookie("language", "english", 1);
+                            achild.text(jdata[i].childNode[i1].NodeName);
+
+                        }
+
+
+                        achild.appendTo(lichild);
+
+
+
+                    }
+
+                }
+                else {
+                    li.attr("class", "menu-item menu-item-type-custom menu-item-object-custom");
+
+                }
+            }
+        } //LoadOldShowMenu();
+    }
+    function LoadOldShowMenu() {
+        $('ul li:has(ul)').addClass('has-submenu'); 
+        $('ul li ul').addClass('sub-menu'); $('ul.dropdown li').hover(function () { $(this).addClass('hover'); }, function () { $(this).removeClass('hover'); }); var $menu = $('#menu'), $menulink = $('#spinner-form'), $search = $('#search'), $search_box = $('.search_box'), $menuTrigger = $('.has-submenu > a'); $menulink.click(function (e) { $menulink.toggleClass('active'); $menu.toggleClass('active'); if ($search.hasClass('active')) { $('.menu.active').css('padding-top', '50px'); } }); $search.click(function (e) { e.preventDefault(); $search_box.toggleClass('active'); }); $menuTrigger.click(function (e) { e.preventDefault(); var t = $(this); t.toggleClass('active').next('ul').toggleClass('active'); }); $('ul li:has(ul)'); $(function () { var e = $(document).scrollTop(); var t = $('.nav_wrapper').outerHeight(); $(window).scroll(function () { var n = $(document).scrollTop(); if ($(document).scrollTop() >= 50) { $('.nav_wrapper').css('position', 'fixed'); } else { $('.nav_wrapper').css('position', 'fixed'); } if (n > t) { $('.nav_wrapper').addClass('scroll'); } else { $('.nav_wrapper').removeClass('scroll'); } if (n > e) { $('.nav_wrapper').removeClass('no-scroll'); } else { $('.nav_wrapper').addClass('no-scroll'); } e = $(document).scrollTop(); }); }); }
+    function LoadImportantLinks() {
+        $.ajax({
+            dataType: "json",
+            url: "/InstituteContent/" + instcode + "/Content/ImportantLinksContent.json",
+            //data: data,
+            success: function (result) {
+
+                LoadImportantLinksInner(result);
+            },
+            complete: function () {
+
+            },
+        });
+
+    }
+    function LoadImportantNews(){
+        $.ajax({
+            dataType: "json",
+            url: "/InstituteContent/" + instcode + "/Content/LatestNewsContent.json",
+            //data: data,
+            success: function (result) {
+
+                LoadLatestNewsInner(result);
+            },
+            complete: function () {
+
+            },
+        });
+
+    }
+    function LoadImportantLinksInner(jsondata) {
+
+        $('h3#headingImportantLinks').removeAttr('style');
+        var language = getCookie("language").toLowerCase();
+
+        $('h3#headingImportantLinks').attr('style', 'background-color:#294A70 !important;color:white !important');
+        
+        var cList = $('ul#menu-important-links');
+        cList.empty();
+        var jdata = jsondata;
+        //  var jdata = JSON.parse(jsondata);
+        for (var i = 0; i <= jdata.length - 1; i++) {
+          
+            var limenu = $('<li/>').attr('title', 'Link').appendTo(cList);
+            var id = 840 + i;
+            var idmenu = "menu-item-" + id;
+            var fa = $('<i/>');
+            fa.attr("class", 'fa-li fa-spinner fa-spin').appendTo(limenu);
+            if (i == 0) {
+                 
+               // var idmenu = "menu-item-"+id;
+                limenu.attr("class", 'menu-item menu-item-type-custom menu-item-object-custom NewsLinkMargin ' + idmenu);
+                limenu.attr("id", idmenu);
+
+            }
+            else {
+              //  var idmenu = "menu-item-" + id;
+                limenu.attr("class", 'menu-item menu-item-type-post_type menu-item-object-page NewsLinkMargin ' + idmenu);
+                limenu.attr("id", idmenu);
+            }
+            
+            var a = $('<a/>').attr("href", jdata[i].NodeLink)
+                .attr("title", 'Important Link');
+                
+                // .text(jdata[i].NodeName);
+
+            if (language != "") {
+                if (language == "english") {
+
+                    a.text(jdata[i].NodeName);
+
+
+                }
+                else {
+                    a.text(jdata[i].HindiNodeName);
+
+                }
+            }
+            else {
+
+                setCookie("language", "english", 1);
+                a.text(jdata[i].NodeName);
+
+            }
+            a.appendTo(limenu);
+
+        }
+    }
+    function LoadLatestNewsInner(jsondata) {
+        var language = getCookie("language").toLowerCase();
+
+        $('h3#headingImportantLinks').removeAttr('style');
+
+        $('h3#headingImportantLinks').attr('style', 'background-color:#294A70 !important;color:white !important');
+        var marqueenews = $('div#marqueenews');
+        var cList = $('ul#latestNews');
+        cList.empty();
+        var jdata = jsondata;
+        //  var jdata = JSON.parse(jsondata);
+        for (var i = 0; i <= jdata.length - 1; i++) {
+
+            var limenu = $('<li/>').attr('title', 'Link').appendTo(cList);
+            var id = 840 + i;
+            var idmenu = "menu-item-" + id;
+            var fa = $('<i/>');
+            fa.attr("class", 'fa-li fa-spinner fa-spin').appendTo(limenu);
+            if (i == 0) {
+
+                // var idmenu = "menu-item-"+id;
+                limenu.attr("class", 'menu-item menu-item-type-custom menu-item-object-custom NewsLinkMargin ' + idmenu);
+                limenu.attr("id", idmenu);
+
+            }
+            else {
+                //  var idmenu = "menu-item-" + id;
+                limenu.attr("class", 'menu-item menu-item-type-post_type menu-item-object-page NewsLinkMargin ' + idmenu);
+                limenu.attr("id", idmenu);
+            }
+            var marqueea = $('<a/>').attr("href", jdata[i].NodeLink)
+                .attr("title", 'Important Link');
+            var a = $('<a/>').attr("href", jdata[i].NodeLink)
+                .attr("title", 'Important Link');
+
+                   
+            if (language != "") {
+                if (language == "english") {
+
+                    a.text(jdata[i].NodeName);
+                    marqueea.text(jdata[i].NodeName + ' | ');
+                    if (i <3) {
+                        var sup = $('<sup/>').text("New").attr("style", "font-weight:bold; font-size:10px; color:RED");
+
+                        sup.appendTo(a);
+                    }
+                }
+                else {
+                    a.text(jdata[i].HindiNodeName);
+                    marqueea.text(jdata[i].HindiNodeName + ' | ');
+                    if (i <3) {
+                        var sup = $('<sup/>').text("New").attr("style", "font-weight:bold; font-size:10px; color:RED");
+
+                        sup.appendTo(a);
+                    };
+                }
+            }
+            else {
+
+                setCookie("language", "english", 1);
+                a.text(jdata[i].NodeName);
+                marqueea.text(jdata[i].NodeName + ' | ');
+                if (i < 3) {
+                    var sup = $('<sup/>').text("New").attr("style", "font-weight:bold; font-size:10px; color:RED");
+
+                    sup.appendTo(a);
+                }
+            }
+            a.appendTo(limenu);
+           
+            marqueea.appendTo(marqueenews);
+           // .text(jdata[i].NodeName).appendTo(limenu);
+        }
+    }
+    function ChangeLanguage(language) {
+        setCookie("language", language, 1);
+        documentSuccess();
+    }
